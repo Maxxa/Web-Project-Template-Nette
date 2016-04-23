@@ -1,0 +1,102 @@
+
+{block content}
+
+<div class="container">
+
+  <a n:href="Artist:default"><span class="glyphicon glyphicon-arrow-left"></span> Zpět</a>
+
+   <fieldset>
+   <legend>Úprava umělce</legend>
+
+<form n:name="formEdit" class="form-horizontal">
+
+  {if $user->isInRole("admin")}
+<div class="form-group">
+    {label name class=>"col-sm-2 control-label" /}
+    <div class="col-sm-10">
+        {input name class=>"form-control"}
+    </div>
+  </div><div class="form-group">
+    {label name_en class=>"col-sm-2 control-label" /}
+    <div class="col-sm-10">
+        {input name_en class=>"form-control"}
+    </div>
+  </div>
+  <div class="form-group">
+    {label photo_name class=>"col-sm-2 control-label" /}
+    <div class="col-sm-10">
+        {input photo_name class=>"form-control"}
+    </div>
+  </div>
+  <div class="form-group">
+    {label filtr class=>"col-sm-2 control-label" /}
+    <div class="col-sm-10">
+        {input filtr class=>"form-control"}
+    </div>
+  </div>
+  <div class="form-group">
+    {label country_cz class=>"col-sm-2 control-label" /}
+    <div class="col-sm-10">
+        {input country_cz class=>"form-control"}
+    </div>
+  </div>
+  <div class="form-group">
+    {label country_en class=>"col-sm-2 control-label" /}
+    <div class="col-sm-10">
+        {input country_en class=>"form-control"}
+    </div>
+  </div>
+<div class="form-group">
+    <div class="col-sm-2 control-label required">
+        Aktivní
+    </div>
+    <div class="col-sm-10 smcheckbox">
+    {label is_active}
+        {input is_active class=>"checkbox" }
+   {/label}
+  </div>
+  </div>
+  {/if}
+
+  <div class="form-group">
+    {label description_cz class=>"col-sm-2 control-label" /}
+    <div class="col-sm-10">
+        {input description_cz class=>"form-control textEditor"}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {label description_en class=>"col-sm-2 control-label" /}
+    <div class="col-sm-10">
+        {input description_en class=>"form-control textEditor"}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        {input save class=>"btn btn-success"}
+    </div>
+  </div>
+</form>
+</fieldset>
+
+</div>
+
+
+{/block}
+
+{block scripts}
+{include #parent}
+<script type="text/javascript" src="{$basePath}/js/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '.textEditor',
+        plugins: [
+            " link paste"
+        ],
+        toolbar: "insertfile undo redo | bold italic underline | link ",
+        forced_root_block: 'p',
+        paste_as_text: true,
+    });
+</script>
+{/block}

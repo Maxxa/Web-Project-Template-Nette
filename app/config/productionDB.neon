@@ -1,0 +1,6 @@
+database:
+	dsn: 'mysql:host=######;dbname=######'
+	user: #########
+	password: #######
+	options:
+		lazy: yes

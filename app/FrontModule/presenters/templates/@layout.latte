@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6 no-js" lang="{$lang}"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7 no-js" lang="{$lang}"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8 no-js" lang="{$lang}"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9 no-js" lang="{$lang}"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="{$lang}"><!--<![endif]-->
+<head>
+    <title>{ifset title}{include title}{/ifset}</title>
+    {block head}{/block}
+</head>
+<body>
+{include content}
+{block scripts}
+    <script src="{$basePath}/js/scripts.js"></script>
+    <script src="//nette.github.io/resources/js/netteForms.min.js"></script>
+    <script src="{$basePath}/js/main.js"></script>
+{/block}
+</body>
+</html>
